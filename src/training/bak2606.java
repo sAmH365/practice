@@ -3,32 +3,38 @@ package training;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class bak2606 {
-  static boolean[][] graph;
-  static boolean [] visited;
+
+  static int MAX = 100 + 10;
+  static ArrayList<Integer>[] graph;
+  static boolean[] visited;
+  static int count = 0;
   static int N, M;
-  static int count;
 
-  public static void main(String[] args) throws IOException {
-    BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+  public static void main(String[] args) throws IOException{
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    N = Integer.parseInt(bf.readLine());
-    M = Integer.parseInt(bf.readLine());
+    N = Integer.parseInt(br.readLine()); // 노드 수
+    M = Integer.parseInt(br.readLine()); // 간선 수
 
-    graph = new boolean[N + 1][N + 1];
-    visited = new boolean[N + 1];
+    visited = new boolean[MAX];
+    graph = new ArrayList[MAX];
+    for (int i=1;i<=N;i++) {
+      graph[i] = new ArrayList<>();
+    }
 
     int x,y;
     for (int i=0; i<M; i++) {
-      StringTokenizer st = new StringTokenizer(bf.readLine());
+      StringTokenizer st = new StringTokenizer(br.readLine());
 
       x = Integer.parseInt(st.nextToken());
       y = Integer.parseInt(st.nextToken());
 
-      graph[x][y] = true;
-      graph[y][x] = true;
+      graph[x].add(y);
+      graph[y].add(x);
     }
 
     dfs(1);
@@ -40,9 +46,11 @@ public class bak2606 {
     visited[idx] = true;
     count++;
 
-    for (int i=1; i <= N; i++) {
-      if (!visited[i] && graph[idx][i]) {
-        dfs(i);
+    for (int i=0; i<graph[idx].size(); i++) {
+      int next = graph[idx].get(i);
+
+      if (!visited[next]) {
+        dfs(next);
       }
     }
   }
