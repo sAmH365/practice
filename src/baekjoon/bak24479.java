@@ -1,4 +1,4 @@
-package bak24479;
+package baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-public class Main {
+public class bak24479 {
 
   static int MAX = 100000 + 10;
   static ArrayList<Integer>[] graph;

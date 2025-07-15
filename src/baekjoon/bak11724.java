@@ -1,4 +1,4 @@
-package bak11724;
+package baekjoon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class Main {
+public class bak11724 {
   static int MAX = 1000 + 10;
   static ArrayList<Integer>[] graph;
   static boolean[] visited;
