@@ -1,4 +1,4 @@
-package daily._260317;
+package _260317;
 
 public class MyQueue {
   private int[] queue;
