@@ -1,9 +1,8 @@
+package _260317;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import _260317.MyQueue;
-import _260317.MyStack;
 import org.junit.jupiter.api.Test;
 
 class StackQueueTest {
